@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChangeThisToYourRailsAppName</title>
+    <title>Intensify</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  <%= render "shared/navbar" %>
+  <div class="card">
+  <img src="" alt="Card Image" class="card-image">
+  <div class="card-content">
+    <h2 class="card-title">Card Title</h2>
+    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
+
     <%= yield %>
   </body>
 </html>
