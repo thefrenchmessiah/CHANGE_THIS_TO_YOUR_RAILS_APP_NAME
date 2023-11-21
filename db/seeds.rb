@@ -24,3 +24,17 @@
 # Emotion.create(name: "Disgusted", description: "Feeling or showing revulsion or strong disapproval.", user_id: 1, universal_emotion_id: 5)
 # Emotion.create(name: "Surprised", description: "Feeling or showing surprise because something unexpected has happened.", user_id: 1, universal_emotion_id: 1)
 # Emotion.create(name: "Afraid", description: "Feeling fear or anxiety; frightened.", user_id: 1, universal_emotion_id: 4)
+
+### FIX THIS HSIT ###
+
+# already created bookings
+# Booking.create(start_date: "2021-09-01", end_date: "2021-10-01", client_id: 2, owner_id: 1, emotion_id: 1)
+# Booking.create(start_date: "2021-09-02", end_date: "2021-10-02", client_id: 2, owner_id: 1, emotion_id: 2)
+# Booking.create(start_date: "2021-09-03", end_date: "2021-10-03", client_id: 2, owner_id: 1, emotion_id: 3)
+
+# # already created ratings
+# Rating.create(rating: 5, comment: "Great!", booking_id: 1)
+# Rating.create(rating: 4, comment: "Good!", booking_id: 2)
+# Rating.create(rating: 3, comment: "Okay!", booking_id: 3)
+
+### FIX THIS HSIT ###

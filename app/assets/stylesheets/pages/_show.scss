@@ -13,19 +13,39 @@
   }
 }
 
-.card-emotion {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 10px grey;
-  border-radius: 10px;
-  width: 800px;
-  height: 50px;
+.container-emotion {
+  background-color: #ffffff;
   margin: 20px;
-  padding: 20px;
-  text-align: center;
-  justify-content: center;
 
-  .link {
-    text-decoration: none;
-    color: black;
+  .card-emotion {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px grey;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+
+    .link {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .emotion-rating {
+    font-size: 48px;
+  }
+
+  .emotion-available {
+    font-size: 24px;
+    text-align: center;
+    justify-content: center;
+    background-color: rgba(153, 255, 153, 0.486);
+    box-shadow: 0 0 10px rgba(75, 126, 75, 0.486);
+    width: 200px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
   }
 }

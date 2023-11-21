@@ -1,16 +1,19 @@
-
 <%= form_with(model: @booking, url: new_emotion_booking_path, method: :post) do |form| %>
-  <%# <div class="field"> %>
-    <%# <%= form.hidden_field :client_id, value: current_user.id %>
-  <%# </div> %>
+  <%# FIX THIS HSIT %>
 
-  <%# <div class="field"> %>
-    <%# <%= form.hidden_field :owner_id, value: current_user.id %>
-  <%# </div> %>
+  <div class="field">
+    <%= form.hidden_field :client_id, value: current_user.id %>
+  </div>
 
-  <%# <div class="field"> %>
-    <%# <%= form.hidden_field :user_id, value: current_user.id %>
-  <%# </div> %>
+  <div class="field">
+    <%= form.hidden_field :owner_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <%# FIX THIS HSIT %>
 
   <div class="field">
     <%= form.label :start_date %>
