@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_104127) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.bigint "client_id", null: false
+    t.bigint "owner_id", null: false
+    t.bigint "emotion_id", null: false
+    t.bigint "rating_id", null: false
+    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["emotion_id"], name: "index_bookings_on_emotion_id"
+    t.index ["owner_id"], name: "index_bookings_on_owner_id"
+    t.index ["rating_id"], name: "index_bookings_on_rating_id"
   end
 
   create_table "emotions", force: :cascade do |t|
@@ -30,6 +40,26 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_104127) do
     t.datetime "updated_at", null: false
     t.index ["universal_emotion_id"], name: "index_emotions_on_universal_emotion_id"
     t.index ["user_id"], name: "index_emotions_on_user_id"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.bigint "client_id", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_inquiries_on_booking_id"
+    t.index ["client_id"], name: "index_inquiries_on_client_id"
+    t.index ["owner_id"], name: "index_inquiries_on_owner_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "emotion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emotion_id"], name: "index_ratings_on_emotion_id"
   end
 
   create_table "universal_emotions", force: :cascade do |t|
@@ -52,6 +82,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_104127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "emotions"
+  add_foreign_key "bookings", "ratings"
+  add_foreign_key "bookings", "users", column: "client_id"
+  add_foreign_key "bookings", "users", column: "owner_id"
   add_foreign_key "emotions", "universal_emotions"
   add_foreign_key "emotions", "users"
+  add_foreign_key "inquiries", "bookings"
+  add_foreign_key "inquiries", "users", column: "client_id"
+  add_foreign_key "inquiries", "users", column: "owner_id"
+  add_foreign_key "ratings", "emotions"
 end
