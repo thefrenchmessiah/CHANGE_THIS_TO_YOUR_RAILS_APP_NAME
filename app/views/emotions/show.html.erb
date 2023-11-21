@@ -9,7 +9,7 @@
         <p><%= @emotion.description %></p>
       </div>
       <div class="card-emotion">
-        <div><%= Shared by @emotion.user.first_name %> <%= @emotion.user.last_name %> %></div>
+        <div><%= link_to "Shared by #{@emotion.user.first_name} #{@emotion.user.last_name}", user_path(@emotion.user), class:"link" %></div>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
 </div>
 
 <div>
-  <%= link_to "Book", new_booking_path(@emotion), class:"button-text" %>
+  <%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text" %>
 </div>
 
 <div>

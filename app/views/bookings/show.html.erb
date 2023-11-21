@@ -1,0 +1,9 @@
+<h1><%= @booking.user.name %>'s Booking</h1>
+
+<p><strong>Emotion:</strong> <%= @booking.emotion.name %></p>
+<p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+<p><strong>End Date:</strong> <%= @booking.end_date %></p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %> |
+<%= link_to 'Destroy', @booking, method: :delete, data: { confirm: 'Are you sure?' } %>
