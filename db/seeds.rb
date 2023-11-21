@@ -8,7 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# already created emotions
+# # create universal emotions
+# UniversalEmotion.create(name: "Happiness")
+# UniversalEmotion.create(name: "Sadness")
+# UniversalEmotion.create(name: "Anger")
+# UniversalEmotion.create(name: "Fear")
+# UniversalEmotion.create(name: "Disgust")
+
+# # already created emotions
 # Emotion.create(name: "Embarrassed", description: "Self-conscious and uncomfortable about how you think others will perceive you.", user_id: 1, universal_emotion_id: 2)
 # Emotion.create(name: "Terrified", description: "Feeling extreme fear.", user_id: 1, universal_emotion_id: 4)
 # Emotion.create(name: "Happy", description: "Feeling or showing pleasure or contentment.", user_id: 1, universal_emotion_id: 1)
