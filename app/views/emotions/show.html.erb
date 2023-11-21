@@ -9,7 +9,7 @@
         <p><%= @emotion.description %></p>
       </div>
       <div class="card-emotion">
-        <div><a href="/user/:id" class="link">Shared by <%= @emotion.user.first_name %> <%= @emotion.user.last_name %></a></div>
+        <div><%= Shared by @emotion.user.first_name %> <%= @emotion.user.last_name %> %></div>
       </div>
     </div>
 
