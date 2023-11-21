@@ -3,15 +3,9 @@ class EmotionsController < ApplicationController
     @emotions = Emotion.all
     # filter for emotions by universalEmotion
     # if params[:universalEmotion]
-    #   universalEmotion = params[:universalEmotion]
-    #   emotion = Emotion.find_by(universalEmotion: universalEmotion)
-    #   @emotions = [emotion]
+    #   universal_emotion = params[:universalEmotion]
+    #   @emotions = Emotion.where(universalEmotion: universal_emotion)
     # end
-    # filter for emotions by universalEmotion
-    if params[:universalEmotion]
-      universal_emotion = params[:universalEmotion]
-      @emotions = Emotion.where(universalEmotion: universal_emotion)
-    end
   end
 
   def show
