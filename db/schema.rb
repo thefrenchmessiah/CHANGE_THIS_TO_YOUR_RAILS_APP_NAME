@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_095824) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_21_104127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_095824) do
     t.string "name"
     t.text "description"
     t.float "rating"
-    t.boolean "available"
+    t.boolean "available", default: true
     t.bigint "user_id", null: false
     t.bigint "universal_emotion_id", null: false
     t.datetime "created_at", null: false

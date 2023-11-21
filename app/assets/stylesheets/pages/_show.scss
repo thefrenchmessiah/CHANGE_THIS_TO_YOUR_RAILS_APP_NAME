@@ -1,0 +1,31 @@
+// show-pages
+.banner-emotion {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 100px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
+
+.card-emotion {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px grey;
+  border-radius: 10px;
+  width: 800px;
+  height: 50px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+}
