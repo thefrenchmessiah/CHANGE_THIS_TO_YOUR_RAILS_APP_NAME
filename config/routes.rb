@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'ratings/new'
-  get 'ratings/create'
-  get 'inquiries/index'
-  get 'inquiries/show'
-  get 'inquiries/new'
-  get 'inquiries/create'
   root to: "emotions#index"
 
   resources :emotions do
