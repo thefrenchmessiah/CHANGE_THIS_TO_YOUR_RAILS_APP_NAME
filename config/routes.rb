@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: "emotions#index"
 
   resources :emotions do
-    resources :bookings, except: :destroy
+    resources :bookings, except: :destroy do
+      resources :ratings, only: %i[new create]
+    end
   end
   resources :bookings, only: :destroy
 
