@@ -4,4 +4,12 @@ class Emotion < ApplicationRecord
 
   has_many :ratings
   has_many :bookings
+
+  def booked_today?
+    bookings.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).exists?
+  end
+
+  def available
+    !booked_today?
+  end
 end

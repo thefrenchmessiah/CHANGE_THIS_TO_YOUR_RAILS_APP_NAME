@@ -50,7 +50,11 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 
+# authentication for user sign in and sign out
 gem "devise"
+
+# star ratings
+gem 'ratyrate'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

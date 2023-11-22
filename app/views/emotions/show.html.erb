@@ -24,7 +24,7 @@
           <%= @emotion.available? ? "Available" : "Unavailable" %>
         </div>
         <div>
-          <button><%= link_to "Inquire", new_emotion_inquiry_path(@emotion.user) %></button>
+          <button><%= link_to "Inquire", new_emotion_inquiry_path(@emotion) %></button>
         </div>
       </div>
     </div>

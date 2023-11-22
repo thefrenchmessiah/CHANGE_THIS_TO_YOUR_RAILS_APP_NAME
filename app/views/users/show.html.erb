@@ -32,6 +32,7 @@
 <ul>
   <% @client_bookings.each do |booking| %>
     <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
+    <div class="card-emotion"><%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking) %></div>
   <% end %>
 </ul>
 
