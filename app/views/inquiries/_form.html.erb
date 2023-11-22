@@ -1,0 +1,23 @@
+<%= simple_form_for [@emotion, @inquiry] do |f| %>
+
+  <div class="field">
+    <%= f.hidden_field :client_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :owner_id, value: @emotion.user.id %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :emotion_id, value: @emotion.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send" %>
+  </div>
+<% end %>

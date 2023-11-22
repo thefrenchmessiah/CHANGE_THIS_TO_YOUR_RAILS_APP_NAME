@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @emotions = Emotion.where(user_id: @user.id)
-    @bookings = Booking.where(owner_id: @user.id)
+    @owner_bookings = Booking.where(owner_id: @user.id)
+    @client_bookings = Booking.where(client_id: @user.id)
     @owner_inquiries = Inquiry.where(owner_id: @user.id)
     @client_inquiries = Inquiry.where(client_id: @user.id)
   end

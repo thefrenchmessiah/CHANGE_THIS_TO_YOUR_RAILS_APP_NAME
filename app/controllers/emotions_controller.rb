@@ -38,7 +38,7 @@ class EmotionsController < ApplicationController
 
   def destroy
     @emotion.destroy
-    redirect_to root_path
+    redirect_to user_path(current_user), notice: "Emotion was successfully deleted."
   end
 
   private

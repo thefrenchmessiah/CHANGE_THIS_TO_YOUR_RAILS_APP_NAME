@@ -7,14 +7,15 @@ class InquiriesController < ApplicationController
 
   def show; end
 
-  def news
+  def new
+    @emotion = Emotion.find(params[:emotion_id])
     @inquiry = Inquiry.new
   end
 
   def create
     @inquiry = Inquiry.new(inquiries_params)
     if @inquiry.save
-      redirect_to @inquiry, notice: 'Inquiry was successfully created.'
+      redirect_to emotions_path, notice: 'Message was successfully sent.'
     else
       render :new
     end
@@ -33,6 +34,6 @@ class InquiriesController < ApplicationController
   end
 
   def inquiries_params
-    params.require(:inquiry).permit(:message)
+    params.require(:inquiry).permit(:message, :client_id, :owner_id, :emotion_id)
   end
 end

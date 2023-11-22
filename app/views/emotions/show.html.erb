@@ -21,7 +21,10 @@
           <span><%= @emotion.rating %></span> ⭐️
         </div>
         <div class="emotion-available">
-          <%= "Available" if @emotion.available? %>
+          <%= @emotion.available? ? "Available" : "Unavailable" %>
+        </div>
+        <div>
+          <button><%= link_to "Inquire", new_emotion_inquiry_path(@emotion.user) %></button>
         </div>
       </div>
     </div>
@@ -29,9 +32,5 @@
 </div>
 
 <div class="emotion-book">
-  <%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text" %>
-</div>
-
-<div class="emotion-back">
-  <%= link_to "Back", emotions_path, class:"button-text" %>
+  <button><%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text" %></button>
 </div>
