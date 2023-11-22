@@ -1,4 +1,4 @@
-<div class="banner-emotion" style="background-color: skyblue">
+<div class="banner-emotion" style="background-color: #310D42">
   <h1><%= @emotion.name %></h1>
 </div>
 
@@ -13,21 +13,24 @@
       </div>
     </div>
 
-    <div class="col-4">
-      <div>
-        <span><%= @emotion.rating %></span> ⭐️
-      </div>
-      <div>
+
+      <div class= "rating-container">
+      <br>
+      <span><%= @emotion.rating %>4,5</span> ⭐️
+        <br>
         <%= "Available" if @emotion.available? %>
       </div>
     </div>
+    </div>
   </div>
+  </div>
+
+<div class= "buttons">
+<div >
+  <%= link_to "Book", new_emotion_booking_path(@emotion), class:"btn btn-outline-warning" %>
 </div>
 
 <div>
-  <%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text" %>
+  <%= link_to "Back", emotions_path, class:"btn btn-outline-warning" %>
 </div>
-
-<div>
-  <%= link_to "Back", emotions_path, class:"button-text" %>
 </div>
