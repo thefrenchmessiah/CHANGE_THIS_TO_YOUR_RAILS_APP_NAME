@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_103947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
     t.bigint "client_id", null: false
     t.bigint "owner_id", null: false
     t.bigint "emotion_id", null: false
-    t.bigint "rating_id", null: false
+    t.bigint "rating_id"
     t.index ["client_id"], name: "index_bookings_on_client_id"
     t.index ["emotion_id"], name: "index_bookings_on_emotion_id"
     t.index ["owner_id"], name: "index_bookings_on_owner_id"
