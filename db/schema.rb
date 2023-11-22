@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_135515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
     t.bigint "client_id", null: false
     t.bigint "owner_id", null: false
     t.bigint "emotion_id", null: false
-    t.bigint "rating_id", null: false
+    t.bigint "rating_id"
     t.index ["client_id"], name: "index_bookings_on_client_id"
     t.index ["emotion_id"], name: "index_bookings_on_emotion_id"
     t.index ["owner_id"], name: "index_bookings_on_owner_id"
@@ -43,13 +43,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
   end
 
   create_table "inquiries", force: :cascade do |t|
-    t.bigint "booking_id", null: false
     t.bigint "client_id", null: false
     t.bigint "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_inquiries_on_booking_id"
+    t.text "message"
+    t.bigint "emotion_id", null: false
     t.index ["client_id"], name: "index_inquiries_on_client_id"
+    t.index ["emotion_id"], name: "index_inquiries_on_emotion_id"
     t.index ["owner_id"], name: "index_inquiries_on_owner_id"
   end
 
@@ -88,7 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_143156) do
   add_foreign_key "bookings", "users", column: "owner_id"
   add_foreign_key "emotions", "universal_emotions"
   add_foreign_key "emotions", "users"
-  add_foreign_key "inquiries", "bookings"
+  add_foreign_key "inquiries", "emotions"
   add_foreign_key "inquiries", "users", column: "client_id"
   add_foreign_key "inquiries", "users", column: "owner_id"
   add_foreign_key "ratings", "emotions"

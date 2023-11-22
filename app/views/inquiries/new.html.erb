@@ -1,2 +1,6 @@
-<h1>Inquiries#new</h1>
-<p>Find me in app/views/inquiries/new.html.erb</p>
+<h1>Inquire</h1>
+<p>Send a message about <%= @emotion.name %> to <%= @emotion.user.first_name %></p>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', emotion_path(@emotion) %>
