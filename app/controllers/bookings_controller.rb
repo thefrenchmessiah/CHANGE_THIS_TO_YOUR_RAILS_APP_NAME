@@ -11,13 +11,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @emotion = Emotion.find(params[:emotion_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @emotion = Emotion.find(params[:emotion_id])
 
     if @booking.save
-      redirect_to booking_path, notice: 'Booking was successfully created.'
+      redirect_to emotion_path(@emotion), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -47,6 +49,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :start_date, :end_date)
+    params.require(:booking).permit(:client_id, :owner_id, :start_date, :end_date)
   end
 end
