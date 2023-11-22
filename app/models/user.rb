@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_many :emotions, dependent: :destroy
-  has_many :client_inquiries, class_name: 'Inquiry', foreign_key: 'client_id'
-  has_many :owner_inquiries, class_name: 'Inquiry', foreign_key: 'owner_id'
+  has_many :bookings, dependent: :destroy
+  has_many :client_inquiries, class_name: 'Inquiry', foreign_key: 'client_id', dependent: :destroy
+  has_many :owner_inquiries, class_name: 'Inquiry', foreign_key: 'owner_id', dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

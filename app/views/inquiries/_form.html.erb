@@ -1,4 +1,4 @@
-<%= simple_form_for [@emotion, @booking] do |f| %>
+<%= simple_form_for [@emotion, @inquiry] do |f| %>
 
   <div class="field">
     <%= f.hidden_field :client_id, value: current_user.id %>
@@ -9,16 +9,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_field :start_date %>
+    <%= f.hidden_field :emotion_id, value: @emotion.id %>
   </div>
 
   <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_field :end_date %>
+    <%= f.label :message %>
+    <%= f.text_field :message %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Book Emotion" %>
+    <%= f.submit "Send" %>
   </div>
 <% end %>

@@ -1,6 +1,65 @@
-<h1><%= @user.first_name %></h1>
-<h2><%= @user.last_name %></h2>
-<p>Email: <%= @user.email %></p>
+<div>
+  <div class="img-profile">
+  </div>
+  <div>
+    <h1><%= @user.first_name %></h1>
+    <h2><%= @user.last_name %></h2>
+    <p>Email: <%= @user.email %></p>
+  </div>
+</div>
 
-<%= link_to 'Back', users_path %>
-<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<h2>Emotions</h2>
+<button><%= link_to 'Share an emotion', new_emotion_path %></button>
+<ul>
+  <% @emotions.each do |emotion| %>
+    <div class="card-emotion">
+      <%= link_to emotion.name, emotion_path(emotion) %>
+      <%= link_to "Delete",
+          emotion_path(emotion),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+</ul>
+
+<h2>Bookings</h2>
+<h3>As an owner</h3>
+<ul>
+  <% @owner_bookings.each do |booking| %>
+    <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
+  <% end %>
+</ul>
+<h3>As a client</h3>
+<ul>
+  <% @client_bookings.each do |booking| %>
+    <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
+    <div class="card-emotion"><%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking) %></div>
+  <% end %>
+</ul>
+
+<h2>Inquiries</h2>
+<h3>Inbox:</h3>
+<ul>
+  <% @owner_inquiries.each do |inquiry| %>
+    <div class="card-emotion">
+      From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %>
+      <br>
+      About: <%= inquiry.emotion.name %>
+      <br>
+      Message: <%= inquiry.message %>
+    </div>
+  <% end %>
+</ul>
+<h3>Outbox:</h3>
+<ul>
+  <% @client_inquiries.each do |inquiry| %>
+    <div class="card-emotion">
+      To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %>
+      <br>
+      About: <%= inquiry.emotion.name %>
+      <br>
+      Message: <%= inquiry.message %>
+    </div>
+  <% end %>
+</ul>
+
+<%= link_to "Delete my account", user_path(current_user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
