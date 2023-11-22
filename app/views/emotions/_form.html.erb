@@ -1,27 +1,25 @@
-<%= form_with(model: @emotion, url: emotions_path, method: :post) do |form| %>
-  <% if @emotion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@emotion.errors.count, "error") %> prohibited this emotion from being saved:</h2>
-
-      <ul>
-        <% @emotion.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for @emotion do |f| %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.hidden_field :owner_id, value: current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= f.label :universal_emotion_id, 'Universal Emotion' %>
+    <%= f.collection_select :universal_emotion_id, @universal_emotions, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit "Share Emotion" %>
   </div>
 <% end %>

@@ -2,11 +2,33 @@
 <h2><%= @user.last_name %></h2>
 <p>Email: <%= @user.email %></p>
 
-<%= link_to 'Delete my account', user_path(@user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%# <%= link_to 'Delete my account', user_registration_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <h2>Emotions</h2>
+<button><%= link_to 'Share an emotion', new_emotion_path %></button>
 <ul>
   <% @emotions.each do |emotion| %>
     <div class="card-emotion"><%= link_to emotion.name, emotion_path(emotion) %></div>
+  <% end %>
+</ul>
+
+<h2>Bookings</h2>
+<ul>
+  <% @bookings.each do |booking| %>
+    <div class="card-emotion"><%= booking.emotion.name %></div>
+  <% end %>
+</ul>
+
+<h2>Inquiries</h2>
+<h3>As an owner</h3>
+<ul>
+  <% @owner_inquiries.each do |inquiry| %>
+    <div class="card-emotion"><%= inquiry.booking.emotion.name %></div>
+  <% end %>
+</ul>
+<h3>As a client</h3>
+<ul>
+  <% @client_inquiries.each do |inquiry| %>
+    <div class="card-emotion"><%= inquiry.booking.emotion.name %></div>
   <% end %>
 </ul>

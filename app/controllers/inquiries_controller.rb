@@ -1,5 +1,5 @@
 class InquiriesController < ApplicationController
-  before_action :set_inquiry, only: %i[show edit update destroy]
+  before_action :set_inquiry, only: %i[show destroy]
 
   def index
     @inquiries = Inquiry.all
@@ -7,7 +7,7 @@ class InquiriesController < ApplicationController
 
   def show; end
 
-  def new
+  def news
     @inquiry = Inquiry.new
   end
 
@@ -18,6 +18,12 @@ class InquiriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @inquiry.destroy
+    redirect_to user_path(@user), notice: 'Inquiry was successfully destroyed.'
   end
 
   private

@@ -14,13 +14,19 @@ class EmotionsController < ApplicationController
 
   def new
     @emotion = Emotion.new
-    @user = User.find(params[:id])
+    @user = current_user
+    @universal_emotions = UniversalEmotion.all
   end
 
   def create
-    @emotion = Emotion.new(emotion_params)
-    @emotion.save
-    redirect_to root_path
+    @emotion = current_user.emotions.build(emotion_params)
+
+    if @emotion.save
+      redirect_to root_path, notice: 'Emotion was successfully created.'
+    else
+      @universal_emotions = UniversalEmotion.all
+      render :new
+    end
   end
 
   def edit; end
