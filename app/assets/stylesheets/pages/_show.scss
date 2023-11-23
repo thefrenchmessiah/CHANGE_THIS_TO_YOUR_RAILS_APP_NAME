@@ -1,11 +1,4 @@
-$background-color: #ffe9bf;
-$gold: #FECA06;
-$pink: #FF50A0;
-$green: #2CFFC7;
-$orange: #FF7B07;
-$blue: #0FBCFE;
-
-$font-dimension: 4px;
+@import "palette";
 
 .emotion-container {
   max-width: 1000px;
@@ -96,3 +89,30 @@ $font-dimension: 4px;
 }
 
 /* Add additional styles as needed */
+
+.center-stuff {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 10px;
+
+  h2 {
+    font-weight: 900;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: $pink;
+  }
+}
+
+.share-button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: $orange;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: $font-dimension * 4;
+}
