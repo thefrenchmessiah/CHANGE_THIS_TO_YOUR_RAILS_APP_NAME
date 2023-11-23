@@ -10,8 +10,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <style>
   @import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+
 </style>
   </head>
 
@@ -20,7 +23,6 @@
     <%# <p class="alert"><%= alert %>
 
     <%= render "shared/navbar" %>
-
     <%= yield %>
 
     <div class="footer">

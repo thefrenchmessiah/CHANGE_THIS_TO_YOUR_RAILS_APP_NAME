@@ -1,6 +1,6 @@
 // home-page
 body {
-  background-color: #9B6EB3;
+  background-color: #ffe9bf;
   margin: 0 auto;
 }
 
@@ -63,7 +63,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #100C34;
+  background-color: navy;
   width: 112%;
   height: 100px;
 }
@@ -76,6 +76,10 @@ body {
   margin-left: 45%;
   }
 
-.body, p {
+body, p {
   margin: 0;
+}
+
+.category-avatar {
+  font-size: 100px
 }
