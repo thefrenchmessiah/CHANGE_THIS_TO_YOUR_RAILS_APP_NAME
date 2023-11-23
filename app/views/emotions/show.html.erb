@@ -1,4 +1,4 @@
-<div class="banner-emotion" style="background-color: skyblue">
+<div class="banner-emotion" style="background-color: #310D42">
   <h1><%= @emotion.name %></h1>
 </div>
 
@@ -28,9 +28,15 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
+  </div>
+
+<div class= "buttons">
+<div >
+  <%= link_to "Home", root_path, class:"btn btn-outline-warning" %>
 </div>
 
 <div class="emotion-book">
-  <button><%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text" %></button>
+  <button><%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text btn btn-outline-warning" %></button>
 </div>

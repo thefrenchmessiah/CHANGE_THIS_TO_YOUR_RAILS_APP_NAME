@@ -1,15 +1,28 @@
-<h1>Welcome to Intensify</h1>
-<p>What emotion would you like to feel today?</p>
-<div class="container text-center">
+<h1 class="center-text left-margin-1">Welcome to Intensify</h1>
+<p class="center-text left-margin-2" >What emotion would you like to feel today?</p>
+
+<div class = "circle-container">
+
+  <div class = "category-avatar" ><%= image_tag("joy.jpeg", alt: "Joy") %></div>
+  <div class = "category-avatar" ><%= image_tag("angry.jpeg", alt: "Angry") %></div>
+  <div class = "category-avatar" ><%= image_tag("disgust.jpeg", alt: "Disgust") %></div>
+  <div class = "category-avatar" ><%= image_tag("sadness.jpeg", alt: "Sadness") %></div>
+  <div class = "category-avatar" ><%= image_tag("fear.jpeg", alt: "Fear") %></div>
+</div>
+
+</div>
+<div class="container">
   <div class="row row-cols-3">
     <% @emotions.each do |emotion| %>
       <ul>
           <div class="col card-index">
             <h3><%= emotion.name.capitalize %></h3>
             <p><%= emotion.description %></p>
-            <button><%= link_to "Book", emotion_path(emotion), class:"button-text" %></button>
+            <button class= "button"><%= link_to "Book", emotion_path(emotion), class:"button-text" %></button>
           </div>
       </ul>
     <% end %>
   </div>
+<div class="footer">
+  <p>© 2023 Intensify</p>
 </div>
