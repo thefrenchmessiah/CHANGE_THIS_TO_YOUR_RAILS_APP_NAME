@@ -1,10 +1,9 @@
-<div>
-  <div class="img-profile">
+<div class="banner owner-details">
+  <div class="owner-photo">
+    <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
   </div>
-  <div>
-    <h1><%= @user.first_name %></h1>
-    <h2><%= @user.last_name %></h2>
-    <p>Email: <%= @user.email %></p>
+  <div class="owner-description">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
   </div>
 </div>
 
@@ -33,32 +32,6 @@
   <% @client_bookings.each do |booking| %>
     <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
     <div class="card-emotion"><%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking) %></div>
-  <% end %>
-</ul>
-
-<h2>Inquiries</h2>
-<h3>Inbox:</h3>
-<ul>
-  <% @owner_inquiries.each do |inquiry| %>
-    <div class="card-emotion">
-      From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %>
-      <br>
-      About: <%= inquiry.emotion.name %>
-      <br>
-      Message: <%= inquiry.message %>
-    </div>
-  <% end %>
-</ul>
-<h3>Outbox:</h3>
-<ul>
-  <% @client_inquiries.each do |inquiry| %>
-    <div class="card-emotion">
-      To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %>
-      <br>
-      About: <%= inquiry.emotion.name %>
-      <br>
-      Message: <%= inquiry.message %>
-    </div>
   <% end %>
 </ul>
 
