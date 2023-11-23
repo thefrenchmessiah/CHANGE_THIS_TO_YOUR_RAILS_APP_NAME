@@ -1,42 +1,43 @@
-<div class="banner-emotion" style="background-color: #310D42">
-  <h1><%= @emotion.name %></h1>
-</div>
-
-<div class="container text-center">
-  <div class="row">
-    <div class="col-8">
-        <div class="container-emotion">
-          <div class="card-emotion">
-            <p><%= @emotion.description %></p>
+<div class="emotion-container">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
+    <h1><%= @emotion.name.upcase %></h1>
+  </div>
+  <div class="emotion-content">
+    <div id="left">
+      <div class="about-card about">
+        <h3>About <%= @emotion.name %></h3>
+        <p><%= @emotion.description.capitalize %></p>
+        <p>It's universal emotion is <%= @emotion.universal_emotion.name.capitalize %></p>
+      </div>
+      <div class="about-card about-owner">
+        <h3>About its owner</h3>
+        <div class="owner-details">
+          <div class="owner-photo">
+            <%= cl_image_tag @owner.photo.key, height: 100, width: 100, crop: :fill %>
           </div>
-          <div class="card-emotion">
-            <div><%= link_to "Shared by #{@emotion.user.first_name} #{@emotion.user.last_name}", user_path(@emotion.user), class:"link" %></div>
+          <div class="owner-description">
+            <div>
+            <p><%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %></p>
+            </div>
+            <div>
+            <button><%= link_to "Emotions", user_path(@owner), class:"btn-owner"%></button>
+            </div>
           </div>
-        </div>
-    </div>
-
-    <div class="col-4">
-      <div class="container-emotion">
-        <div class="emotion-rating">
-          <span><%= @emotion.rating %></span> ⭐️
-        </div>
-        <div class="emotion-available">
-          <%= @emotion.available? ? "Available" : "Unavailable" %>
-        </div>
-        <div>
-          <button><%= link_to "Inquire", new_emotion_inquiry_path(@emotion) %></button>
         </div>
       </div>
     </div>
+    <div id="right">
+      <div class="about-card rating">
+        <div class="rating-score">
+          <span>4.1</span> ⭐️
+        </div>
+      </div>
+      <div class="about-card inquire">
+        <h3>Inquire</h3>
+        <div class="inquire-info">
+          <%= render 'inquiries/form', inquiry: @inquiry %>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
-
-<div class= "buttons">
-<div >
-  <%= link_to "Home", root_path, class:"btn btn-outline-warning" %>
-</div>
-
-<div class="emotion-book">
-  <button><%= link_to "Book", new_emotion_booking_path(@emotion), class:"button-text btn btn-outline-warning" %></button>
 </div>
