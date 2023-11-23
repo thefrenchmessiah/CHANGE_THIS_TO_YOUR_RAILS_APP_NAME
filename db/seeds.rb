@@ -8,10 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# # create universal emotions
-# UniversalEmotion.create(name: "Happiness")
-# UniversalEmotion.create(name: "Sadness")
-# UniversalEmotion.create(name: "Anger")
-# UniversalEmotion.create(name: "Fear")
-# UniversalEmotion.create(name: "Disgust")
-
+# create universal emotions
+UniversalEmotion.create(name: "Happiness")
+UniversalEmotion.create(name: "Sadness")
+UniversalEmotion.create(name: "Anger")
+UniversalEmotion.create(name: "Fear")
+UniversalEmotion.create(name: "Disgust")
