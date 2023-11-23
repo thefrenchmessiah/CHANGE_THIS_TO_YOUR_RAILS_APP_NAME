@@ -13,6 +13,7 @@ class EmotionsController < ApplicationController
   def show
     @owner = User.find(@emotion.user_id)
     @inquiry = Inquiry.new
+    @booking = Booking.new
   end
 
   def new
