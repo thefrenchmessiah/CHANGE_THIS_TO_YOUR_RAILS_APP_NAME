@@ -2,6 +2,8 @@ class Emotion < ApplicationRecord
   belongs_to :user
   belongs_to :universal_emotion
 
+  has_one_attached :photo
+
   has_many :ratings
   has_many :bookings
 
