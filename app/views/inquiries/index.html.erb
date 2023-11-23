@@ -1,2 +1,25 @@
-<h1>Your inquiries</h1>
-<p>Your list of inquiries</p>
+<h1>Messages</h1>
+<h2>Inbox:</h2>
+<ul>
+  <% @owner_inquiries.each do |inquiry| %>
+    <div class="card-emotion">
+      From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %>
+      <br>
+      About: <%= inquiry.emotion.name %>
+      <br>
+      Message: <%= inquiry.message %>
+    </div>
+  <% end %>
+</ul>
+<h2>Outbox:</h2>
+<ul>
+  <% @client_inquiries.each do |inquiry| %>
+    <div class="card-emotion">
+      To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %>
+      <br>
+      About: <%= inquiry.emotion.name %>
+      <br>
+      Message: <%= inquiry.message %>
+    </div>
+  <% end %>
+</ul>

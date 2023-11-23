@@ -10,7 +10,10 @@ class EmotionsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @owner = User.find(@emotion.user_id)
+    @inquiry = Inquiry.new
+  end
 
   def new
     @emotion = Emotion.new
