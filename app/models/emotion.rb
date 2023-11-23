@@ -7,6 +7,11 @@ class Emotion < ApplicationRecord
   has_many :ratings
   has_many :bookings
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :photo, presence: true
+  validates :universal_emotion, presence: true
+
   def booked_today?
     bookings.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).exists?
   end
