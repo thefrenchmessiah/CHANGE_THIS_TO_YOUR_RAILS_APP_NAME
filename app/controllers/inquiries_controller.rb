@@ -3,8 +3,8 @@ class InquiriesController < ApplicationController
 
   def index
     @inquiries = Inquiry.all
-    @owner_inquiries = Inquiries.where(owner_id: current_user.id)
-    @client_inquiries = Inquiries.where(client_id: current_user.id)
+    @owner_inquiries = Inquiry.where(owner_id: current_user.id)
+    @client_inquiries = Inquiry.where(client_id: current_user.id)
   end
 
   def show; end
