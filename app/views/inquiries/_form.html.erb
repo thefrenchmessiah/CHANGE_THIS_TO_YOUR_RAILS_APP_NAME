@@ -1,4 +1,4 @@
-<%= simple_form_for [@emotion, @inquiry] do |f| %>
+<%= simple_form_for [@emotion, @inquiry], html: { class: "inquiry-form" } do |f| %>
 
   <div class="field">
     <%= f.hidden_field :client_id, value: current_user.id %>

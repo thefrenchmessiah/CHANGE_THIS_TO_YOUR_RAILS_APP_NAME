@@ -1,35 +1,42 @@
 <div class="emotion-container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
-    <h3><%= @emotion.name.upcase %></h3>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
+    <h1><%= @emotion.name.upcase %></h1>
   </div>
   <div class="emotion-content">
-    <div class="about">
-      <h3>About</h3>
-      <p>Text lorem ipsum...</p>
-      <p>Text lorem ipsum...</p>
-      <p>Text lorem ipsum...</p>
+    <div id="left">
+      <div class="about-card about">
+        <h3>About <%= @emotion.name %></h3>
+        <p><%= @emotion.description.capitalize %></p>
+        <p>It's universal emotion is <%= @emotion.universal_emotion.name.capitalize %></p>
+      </div>
+      <div class="about-card about-owner">
+        <h3>About its owner</h3>
+        <div class="owner-details">
+          <div class="owner-photo">
+            <%= cl_image_tag @owner.photo.key, height: 100, width: 100, crop: :fill %>
+          </div>
+          <div class="owner-description">
+            <div>
+            <p><%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %></p>
+            </div>
+            <div>
+            <button><%= link_to "Emotions", user_path(@owner), class:"btn-owner"%></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="rating">
-      <div class="rating-score">
-        <span>4.1</span>
+    <div id="right">
+      <div class="about-card rating">
+        <div class="rating-score">
+          <span>4.1</span> ⭐️
+        </div>
       </div>
-      <div class="rating-star">
-        <!-- Include star icon here -->
-      </div>
-    </div>
-    <div class="about-owner">
-      <h3>About its owner</h3>
-      <div class="owner-photo">
-        <!-- Include owner photo here -->
-      </div>
-      <div class="owner-description">
-        <p>Text lorem ipsum...</p>
-      </div>
-    </div>
-    <div class="inquire">
-      <button>Inquire</button>
-      <div class="inquire-info">
-        <!-- Include inquire form or information here -->
+      <div class="about-card inquire">
+        <h3>Inquire</h3>
+        <div class="inquire-info">
+          <%= render 'inquiries/form', inquiry: @inquiry %>
+        </div>
       </div>
     </div>
   </div>
