@@ -51,6 +51,6 @@ class EmotionsController < ApplicationController
   end
 
   def emotion_params
-    params.require(:emotion).permit(:name, :universal_emotion_id, :description)
+    params.require(:emotion).permit(:name, :universal_emotion_id, :description, :photo)
   end
 end
