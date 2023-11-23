@@ -5,6 +5,8 @@ class Emotion < ApplicationRecord
   has_many :ratings
   has_many :bookings
 
+  has_one_attached :photo
+
   def booked_today?
     bookings.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).exists?
   end
