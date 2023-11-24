@@ -1,25 +1,78 @@
-<h1>Messages</h1>
-<h2>Inbox:</h2>
-<ul>
-  <% @owner_inquiries.each do |inquiry| %>
-    <div class="card-emotion">
-      From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %>
-      <br>
-      About: <%= inquiry.emotion.name %>
-      <br>
-      Message: <%= inquiry.message %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFE9BF;
+        }
+
+        header {
+            background-color: #000080;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .inbox-container,
+        .outbox-container {
+            width: 960px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(44, 255, 199, 0.5);;
+        }
+
+        .card-emotion {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-emotion:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Messages</h1>
+    </header>
+
+    <div class="inbox-container">
+        <h2>Inbox:</h2>
+        <ul>
+            <% @owner_inquiries.each do |inquiry| %>
+                <li class="card-emotion">
+                    From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %><br>
+                    About: <%= inquiry.emotion.name %><br>
+                    Message: <%= inquiry.message %>
+                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"book-button" %>
+                </li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
-</ul>
-<h2>Outbox:</h2>
-<ul>
-  <% @client_inquiries.each do |inquiry| %>
-    <div class="card-emotion">
-      To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %>
-      <br>
-      About: <%= inquiry.emotion.name %>
-      <br>
-      Message: <%= inquiry.message %>
+
+    <div class="outbox-container">
+        <h2>Outbox:</h2>
+        <ul>
+            <% @client_inquiries.each do |inquiry| %>
+                <li class="card-emotion">
+                    To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %><br>
+                    About: <%= inquiry.emotion.name %><br>
+                    Message: <%= inquiry.message %>
+                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"book-button" %>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
-</ul>
+</body>
+</html>

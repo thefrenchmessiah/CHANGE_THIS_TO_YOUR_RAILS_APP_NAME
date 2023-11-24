@@ -163,23 +163,34 @@ body, p {
 
 .book-button {
   padding: 10px 20px;
-  background: #007bff;
-  border: none;
+  text-decoration: none;
+  background-color: $orange;
   color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  font-size: $font-dimension * 4;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .book-button:hover {
-  background: #0056b3;
+  background: $green;
 }
 
-.book-button {
+.book-button-bookings {
   padding: 10px 20px;
   text-decoration: none;
-  background-color: $orange;
+  background-color: $pink;
   color: white;
   font-weight: 700;
+  border: none;
   border-radius: 5px;
   font-size: $font-dimension * 4;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-button-bookings:hover {
+  background: $blue;
 }

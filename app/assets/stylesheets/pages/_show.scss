@@ -117,3 +117,34 @@
   border-radius: 5px;
   font-size: $font-dimension * 4;
 }
+
+.big-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+  width: 960px;
+  margin: 0 auto;
+  }
+
+
+.booking-container,
+.experiences-container {
+  flex-basis: 48%;
+}
+
+.card-emotion {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.no-underline {
+  text-decoration: none;
+}
