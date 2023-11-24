@@ -38,18 +38,18 @@
             border-radius: 4px;
         }
 
-        .submit-button {
-            background-color: #3498db;
-            color: white;
+               .owner-button {
             padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            background-color: $orange;
+            color: white;
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: $font-dimension * 4;
         }
 
-        .submit-button:hover {
-            background-color: #2980b9;
+        .owner-button:hover {
+            background-color: #FF5010;
         }
     </style>
 </head>
@@ -67,7 +67,6 @@
     </div>
 
     <div class="form-field">
-      <%= f.label :rating, class: 'form-label' %>
       <div class="rating-input">
         <%= f.input :rating, as: :float, in: (0.0..5.0), step: 0.1, class: 'rating-stars' %>
       </div>

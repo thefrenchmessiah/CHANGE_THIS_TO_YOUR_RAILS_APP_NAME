@@ -4,6 +4,9 @@
 body {
   background-color: #ffe9bf;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .banner-home {
@@ -68,20 +71,26 @@ body {
 
 .footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: navy;
   width: 100%;
   height: 100px;
+  margin-top: auto;
 }
+
 
 .footer p {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   color: white;
-  margin-top: 35px;
-  margin-left: 45%;
+  margin-top: 10px;
+  margin-right: 60px;
 }
+
 
 body, p {
   margin: 0;
