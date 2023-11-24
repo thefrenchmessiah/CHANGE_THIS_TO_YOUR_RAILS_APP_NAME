@@ -18,7 +18,7 @@
   <div class="card-grid">
     <% @emotions.each do |emotion| %>
       <div class="card">
-        <%= if emotion.photo.key? %>
+        <% if emotion.photo.key? %>
           <%= cl_image_tag emotion.photo.key, alt: emotion.name, class: 'card-image' %>
         <% end %>
         <div class="card-info">
