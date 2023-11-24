@@ -97,7 +97,12 @@ body, p {
 }
 
 .category-avatar {
-  font-size: 100px
+  font-size: 100px;
+  text-decoration: none;
+}
+
+.category-avatar:hover {
+  font-size: 140px;
 }
 
 .cards-container {

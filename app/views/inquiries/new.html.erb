@@ -1,6 +1,9 @@
-<h1>Inquire</h1>
-<p>Send a message about <%= @emotion.name %> to <%= @emotion.user.first_name %></p>
+<br>
+<h1 class="center-text">Inquire</h1>
 
-<%= render 'form' %>
+  <p class="center-text">Send a message about <%= @emotion.name %> to <%= @emotion.user.first_name %></p>
+  <br>
 
-<%= link_to 'Back', emotion_path(@emotion) %>
+  <%= render 'form' %>
+<br>
+<%= link_to 'Back', emotion_path(@emotion), class: 'owner-button' %>

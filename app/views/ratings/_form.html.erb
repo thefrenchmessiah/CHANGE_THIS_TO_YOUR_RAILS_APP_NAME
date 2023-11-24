@@ -41,11 +41,15 @@
                .owner-button {
             padding: 10px 20px;
             text-decoration: none;
-            background-color: $orange;
+            background-color: #FF7B07;
             color: white;
             font-weight: 700;
             border-radius: 5px;
             font-size: $font-dimension * 4;
+            border: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .owner-button:hover {
@@ -55,7 +59,7 @@
 </head>
 <body>
 
-<%= simple_form_for [@emotion, @booking, @rating] do |f| %>
+<%= simple_form_for [@emotion, @booking, @rating], method: :post do |f|  %>
 
   <div class="form-container">
     <div class="form-field">

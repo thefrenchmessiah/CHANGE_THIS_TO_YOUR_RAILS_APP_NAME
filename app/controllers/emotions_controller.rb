@@ -3,10 +3,10 @@ class EmotionsController < ApplicationController
 
   def index
     @emotions = Emotion.all
-    # filter for emotions by universalEmotion
-    if params[:universalEmotion]
-      universal_emotion = params[:universal_emotion_id]
-      @emotions = Emotion.where(universalEmotion: universal_emotion)
+    if params[:filter]
+      @emotions = Emotion.where(universal_emotion: params[:filter])
+    else
+      @emotions = Emotion.all
     end
   end
 
