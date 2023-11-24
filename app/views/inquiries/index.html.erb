@@ -56,7 +56,7 @@
                     From: <%= inquiry.client.first_name %> <%= inquiry.client.last_name %><br>
                     About: <%= inquiry.emotion.name %><br>
                     Message: <%= inquiry.message %>
-                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"book-button" %>
+                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"button-orange" %>
                 </li>
             <% end %>
         </ul>
@@ -70,7 +70,7 @@
                     To: <%= inquiry.emotion.user.first_name %> <%= inquiry.emotion.user.last_name %><br>
                     About: <%= inquiry.emotion.name %><br>
                     Message: <%= inquiry.message %>
-                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"book-button" %>
+                    <%= link_to "Reply", new_emotion_inquiry_path(emotion_id: inquiry.emotion.id, user_id: inquiry.emotion.user.id), class:"button-orange" %>
             <% end %>
         </ul>
     </div>
