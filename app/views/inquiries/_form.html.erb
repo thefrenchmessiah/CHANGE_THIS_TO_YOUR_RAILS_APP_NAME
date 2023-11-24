@@ -1,23 +1,84 @@
-<%= simple_form_for [@emotion, @inquiry], html: { class: "inquiry-form" } do |f| %>
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #FFE9BF;
+                color: #333;
+            }
 
-  <div class="field">
-    <%= f.hidden_field :client_id, value: current_user.id %>
-  </div>
+            .form-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
 
-  <div class="field">
-    <%= f.hidden_field :owner_id, value: @emotion.user.id %>
-  </div>
+            .form-field {
+                margin-bottom: 20px;
+            }
 
-  <div class="field">
-    <%= f.hidden_field :emotion_id, value: @emotion.id %>
-  </div>
+            .form-label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
 
-  <div class="field">
-    <%= f.label :message %>
-    <%= f.text_field :message %>
-  </div>
+            .comment-input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
 
-  <div class="actions">
-    <%= f.submit "Send", class:"btn-owner"%>
-  </div>
-<% end %>
+                  .owner-button {
+                padding: 10px 20px;
+                text-decoration: none;
+                background-color: #FF7B07;
+                color: white;
+                font-weight: 700;
+                border-radius: 5px;
+                font-size: $font-dimension * 4;
+                border: none;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .owner-button:hover {
+                background-color: #FF5010;
+            }
+        </style>
+    </head>
+
+    <body>
+      <%= simple_form_for [@emotion, @inquiry], html: { class: "inquiry-form" } do |f| %>
+
+        <div class="form-container">
+          <div class="field">
+            <%= f.hidden_field :client_id, value: current_user.id %>
+          </div>
+
+          <div class="field">
+            <%= f.hidden_field :owner_id, value: @emotion.user.id %>
+          </div>
+
+          <div class="field">
+            <%= f.hidden_field :emotion_id, value: @emotion.id %>
+          </div>
+
+          <div class="field">
+            <%= f.label :message, class: 'form-label' %>
+            <%= f.text_field :message, class: 'comment-input' %>
+          </div>
+        <br>
+          <div class="form-actions">
+            <%= f.submit "Send", class: 'owner-button'%>
+          </div>
+        </div>
+        <% end %>
+    </body>
+  </html>

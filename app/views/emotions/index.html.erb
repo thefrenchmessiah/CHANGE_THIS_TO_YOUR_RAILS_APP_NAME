@@ -7,11 +7,21 @@
   <h2 class="h2-pink margin-top-20">What emotion would you like to feel today?</h2>
 </div>
 <div class="circle-container">
-  <div class="category-avatar" >😃</div>
-  <div class="category-avatar" >😢</div>
-  <div class="category-avatar" >🤮</div>
-  <div class="category-avatar" >😤</div>
-  <div class="category-avatar" >😰</div>
+  <%= link_to emotions_path(filter: 1), class: "category-avatar" do %>
+    😃
+  <% end %>
+  <%= link_to emotions_path(filter: 2), class: "category-avatar" do %>
+    😢
+  <% end %>
+    <%= link_to emotions_path(filter: 3), class: "category-avatar" do %>
+    😡
+  <% end %>
+      <%= link_to emotions_path(filter: 4), class: "category-avatar" do %>
+    😰
+  <% end %>
+      <%= link_to emotions_path(filter: 5), class: "category-avatar" do %>
+    🤮
+  <% end %>
 </div>
 <br>
 <div class="cards-container">
