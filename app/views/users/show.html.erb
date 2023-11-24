@@ -28,19 +28,29 @@
   </div>
 </div>
 
-<h2>Bookings</h2>
-<h3>As an owner</h3>
-<ul>
-  <% @owner_bookings.each do |booking| %>
-    <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
-  <% end %>
-</ul>
-<h3>As a client</h3>
-<ul>
-  <% @client_bookings.each do |booking| %>
-    <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion) %></div>
-    <div class="card-emotion"><%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking) %></div>
-  <% end %>
-</ul>
+  <h2 class="center-text" >Bookings</h2>
+  <div class= "big-container">
 
-<%= link_to "Delete my account", user_path(current_user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <div class= "booking-container">
+      <h3>As an owner</h3>
+      <ul>
+        <% @owner_bookings.each do |booking| %>
+          <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline book-button-bookings" %></div>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class= "experiences-container">
+      <h3>As a client</h3>
+      <ul>
+        <% @client_bookings.each do |booking| %>
+          <div class="card-emotion">
+          <%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline book-button-bookings" %>
+          <br>
+          <%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking), class:"book-button" %></div>
+        <% end %>
+      </ul>
+    </div>
+      <button class= "book-button"><%= link_to "Delete my account", user_path(current_user), class:"book-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+
+  </div>
