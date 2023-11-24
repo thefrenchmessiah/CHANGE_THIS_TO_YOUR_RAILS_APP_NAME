@@ -1,6 +1,10 @@
 <div class="banner owner-details">
   <div class="owner-photo-profile">
-    <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, radius: "max", background: "#ffe9bf" %>
+    <% if emotion.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, radius: "max", background: "#ffe9bf" %>
+    <% else %>
+      <p>Profile Photo Missing</p>
+    <% end %>
   </div>
   <div class="owner-description-profile">
     <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
@@ -17,7 +21,9 @@
   <div class="card-grid">
     <% @emotions.each do |emotion| %>
       <div class="card">
-        <%= cl_image_tag emotion.photo.key, alt: emotion.name, class: 'card-image' %>
+        <% if emotion.photo.attached? %>
+          <%= cl_image_tag emotion.photo.key, alt: emotion.name, class: 'card-image' %>
+        <% end %>
         <div class="card-info">
           <h2 class="emotion-name"><%= emotion.name %></h2>
           <p class="emotion-description"><%= emotion.description %></p>

@@ -1,7 +1,13 @@
 <div class="emotion-container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
-    <h1><%= @emotion.name.upcase %></h1>
-  </div>
+  <% if emotion.photo.attached? %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
+      <h1><%= @emotion.name.upcase %></h1>
+    </div>
+  <% else %>
+    <div class="banner" style="background-color: navy">
+      <h1><%= @emotion.name.upcase %></h1>
+    </div>
+  <% end %>
   <div class="emotion-content">
     <div id="left">
       <div class="about-card about">
@@ -13,7 +19,9 @@
         <h3>About its owner</h3>
         <div class="owner-details">
           <div class="owner-photo">
-            <%= cl_image_tag @owner.photo.key, height: 100, width: 100, crop: :fill %>
+            <% if emotion.photo.attached? %>
+              <%= cl_image_tag @owner.photo.key, height: 100, width: 100, crop: :fill %>
+            <% end %>
           </div>
           <div class="owner-description">
             <div>
