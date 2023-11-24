@@ -14,6 +14,8 @@ class EmotionsController < ApplicationController
     @owner = User.find(@emotion.user_id)
     @inquiry = Inquiry.new
     @booking = Booking.new
+    @ratings = Rating.where(emotion_id: @emotion.user_id)
+    @rating = @ratings.sample
   end
 
   def new
