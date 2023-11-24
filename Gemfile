@@ -60,6 +60,9 @@ gem 'ratyrate'
 gem 'cloudinary'
 gem 'dotenv-rails'
 
+# better error messages
+gem 'rails_12factor'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]

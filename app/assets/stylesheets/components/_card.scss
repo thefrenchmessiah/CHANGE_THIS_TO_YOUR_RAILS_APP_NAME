@@ -25,3 +25,12 @@ object-fit: cover;
   margin-bottom: 10px;
 }
 
+.card-confirmed {
+  color: white;
+  background-color: $orange;
+  margin: 0 auto;
+  width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px $pink;
+}
