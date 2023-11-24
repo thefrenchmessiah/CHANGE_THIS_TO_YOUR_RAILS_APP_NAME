@@ -161,7 +161,7 @@ body, p {
   margin-bottom: 1rem;
 }
 
-.book-button {
+.button-orange {
   padding: 10px 20px;
   text-decoration: none;
   background-color: $orange;
@@ -174,11 +174,11 @@ body, p {
   transition: background-color 0.3s ease;
 }
 
-.book-button:hover {
+.button-orange:hover {
   background: $green;
 }
 
-.book-button-bookings {
+.button-pink {
   padding: 10px 20px;
   text-decoration: none;
   background-color: $pink;
@@ -191,6 +191,6 @@ body, p {
   transition: background-color 0.3s ease;
 }
 
-.book-button-bookings:hover {
+.button-pink:hover {
   background: $blue;
 }

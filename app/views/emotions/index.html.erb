@@ -2,7 +2,10 @@
   <h1>Welcome to</h1>
   <img src="https://res.cloudinary.com/dmilm0nih/image/upload/v1700755879/d04tewomqjyjzf2esheu.png" alt="intensify logo" style="height: 200px;">
 </div>
-<div class="center-stuff"><h2>What emotion would you like to feel today?</h2></div>
+<div class="center-text">
+  <br>
+  <h2 class="h2-pink margin-top-20">What emotion would you like to feel today?</h2>
+</div>
 <div class="circle-container">
   <div class="category-avatar" >😃</div>
   <div class="category-avatar" >😢</div>
@@ -10,7 +13,7 @@
   <div class="category-avatar" >😤</div>
   <div class="category-avatar" >😰</div>
 </div>
-
+<br>
 <div class="cards-container">
   <div class="card-grid">
     <% @emotions.each do |emotion| %>
@@ -19,7 +22,7 @@
         <div class="card-info">
           <h2 class="emotion-name"><%= emotion.name %></h2>
           <p class="emotion-description"><%= emotion.description %></p>
-          <%= link_to 'Book', emotion_path(emotion), class: 'book-button' %>
+          <%= link_to 'Book', emotion_path(emotion), class: 'button-orange' %>
         </div>
       </div>
     <% end %>

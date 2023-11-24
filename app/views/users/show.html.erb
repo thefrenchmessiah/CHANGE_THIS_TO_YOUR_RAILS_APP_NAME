@@ -1,15 +1,17 @@
 <div class="banner owner-details">
-  <div class="owner-photo">
-    <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+  <div class="owner-photo-profile">
+    <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill, radius: "max", background: "#ffe9bf" %>
   </div>
-  <div class="owner-description">
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <div class="owner-description-profile">
+    <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
   </div>
 </div>
 
-<div class="center-stuff">
-  <h2>Emotions</h2>
-  <button class="share-button"><%= link_to 'Share an emotion', new_emotion_path, class:"share-button" %></button>
+<div style="background-color:navy; height: 5px; margin: 30px 0px 20px 0px;"></div>
+
+<div class="center-text">
+  <h2 class="h2-pink margin-top-20">Emotions</h2>
+  <button class="share-button margin-bottom-20"><%= link_to 'Share an emotion', new_emotion_path, class:"share-button" %></button>
 </div>
 <div class="cards-container">
   <div class="card-grid">
@@ -20,7 +22,7 @@
           <h2 class="emotion-name"><%= emotion.name %></h2>
           <p class="emotion-description"><%= emotion.description %></p>
           <%= link_to "Delete",
-              emotion_path(emotion), class:"book-button",
+              emotion_path(emotion), class:"button-orange",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
@@ -28,14 +30,16 @@
   </div>
 </div>
 
-  <h2 class="center-text" >Bookings</h2>
+<div style="background-color:navy; height: 5px; margin: 30px 0px 20px 0px;"></div>
+
+  <h2 class="center-text h2-pink">Bookings</h2>
   <div class= "big-container">
 
     <div class= "booking-container">
       <h3>As an owner</h3>
       <ul>
         <% @owner_bookings.each do |booking| %>
-          <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline book-button-bookings" %></div>
+          <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline button-pink" %></div>
         <% end %>
       </ul>
     </div>
@@ -45,12 +49,12 @@
       <ul>
         <% @client_bookings.each do |booking| %>
           <div class="card-emotion">
-          <%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline book-button-bookings" %>
+          <%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline button-pink" %>
           <br>
-          <%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking), class:"book-button" %></div>
+          <%= link_to "Rate your experience", new_emotion_booking_rating_path(booking.emotion, booking), class:"button-orange" %></div>
         <% end %>
       </ul>
     </div>
-      <button class= "book-button"><%= link_to "Delete my account", user_path(current_user), class:"book-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+      <button class= "button-orange"><%= link_to "Delete my account", user_path(current_user), class:"button-orange", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
 
   </div>

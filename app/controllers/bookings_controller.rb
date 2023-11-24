@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.emotion = @emotion
 
     if @booking.save
-      redirect_to root_path, notice: 'Booking was successfully created.'
+      redirect_to emotion_booking_path(@emotion, @booking)
     else
       render :new
     end
