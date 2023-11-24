@@ -1,5 +1,5 @@
 <div class="emotion-container">
-  <% if emotion.photo.attached? %>
+  <% if @emotion.photo.attached? %>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path @emotion.photo.key, height: 300, crop: :fill %>')">
       <h1><%= @emotion.name.upcase %></h1>
     </div>
@@ -19,7 +19,7 @@
         <h3>About its owner</h3>
         <div class="owner-details">
           <div class="owner-photo">
-            <% if emotion.photo.attached? %>
+            <% if @owner.photo.attached? %>
               <%= cl_image_tag @owner.photo.key, height: 100, width: 100, crop: :fill %>
             <% end %>
           </div>
