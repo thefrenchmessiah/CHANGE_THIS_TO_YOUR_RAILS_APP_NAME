@@ -7,7 +7,10 @@ class InquiriesController < ApplicationController
     @client_inquiries = Inquiry.where(client_id: current_user.id)
   end
 
-  def show; end
+  def show
+    @emotion = Emotion.find(params[:emotion_id])
+    @inquiry = Inquiry.find(params[:id])
+  end
 
   def new
     @emotion = Emotion.find(params[:emotion_id])
@@ -15,9 +18,10 @@ class InquiriesController < ApplicationController
   end
 
   def create
+    @emotion = Emotion.find(params[:emotion_id])
     @inquiry = Inquiry.new(inquiries_params)
     if @inquiry.save
-      redirect_to emotions_path, notice: 'Message was successfully sent.'
+      redirect_to emotion_inquiry_path(@emotion, @inquiry)
     else
       render :new
     end
