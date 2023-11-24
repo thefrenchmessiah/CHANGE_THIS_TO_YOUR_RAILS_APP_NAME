@@ -2,25 +2,18 @@ class RatingsController < ApplicationController
   def new
     @emotion = Emotion.find(params[:emotion_id])
     @booking = Booking.find(params[:booking_id])
-    @rating = Rating.new
+    @rating = @emotion.ratings.new
   end
 
   def create
     @emotion = Emotion.find(params[:emotion_id])
     @booking = Booking.find(params[:booking_id])
-    # @rating = Rating.new(rating_params)
-    # if @rating.save
-    #   redirect_to @rating, notice: 'Rating was successfully created.'
-    # else
-    # #   render :new
-    # # end
-    # @rating = @booking.ratings.build(rating_params.merge(emotion: @emotion))
-
-    # if @rating.save
-    #   redirect_to @rating, notice: 'Rating was successfully created.'
-    # else
-    #   render :new
-    # end
+    @rating = @emotion.ratings.new(rating_params)
+    if @rating.save
+      redirect_to emotion_path(@emotion)
+    else
+      render :new
+    end
   end
 
   private
