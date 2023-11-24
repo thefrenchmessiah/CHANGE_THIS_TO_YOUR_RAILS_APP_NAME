@@ -3,7 +3,7 @@
   <h1>Your message was sent!</h1>
   <h2>You sent: <%= @inquiry.message %></h2>
   <br>
-  <h2><%= @inquiry.owner.first_name.capitalize %><%= @inquiry.owner.last_name.capitalize %> will respond shortly.</h2>
+  <h2><%= @inquiry.owner.first_name.capitalize %> <%= @inquiry.owner.last_name.capitalize %> will respond shortly.</h2>
   <br>
   <button class="button-pink"><%= link_to "Back to your inquired emotion", emotion_path(@emotion), class:"button-pink" %></button>
 </div>

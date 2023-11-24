@@ -47,7 +47,7 @@
         <% @owner_bookings.each do |booking| %>
           <div class="card-emotion"><%= link_to booking.emotion.name, emotion_path(booking.emotion), class: "no-underline button-pink" %>
           <br>
-          <%= link_to 'View Client Profile', user_path(booking.client), class:"button-orange"%></div>
+          <%= link_to "#{booking.client.first_name.capitalize} #{booking.client.last_name.capitalize}", user_path(booking.client), class:"button-orange"%></div>
         <% end %>
       </ul>
     </div>
